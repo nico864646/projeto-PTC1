@@ -66,11 +66,11 @@ public class TelaBuscaFoneFornecedor extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Fone", "Fornecedor"
+                "Fornecedor", "Fone"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -79,10 +79,8 @@ public class TelaBuscaFoneFornecedor extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable);
         if (jTable.getColumnModel().getColumnCount() > 0) {
-            jTable.getColumnModel().getColumn(0).setMinWidth(50);
-            jTable.getColumnModel().getColumn(0).setMaxWidth(50);
-            jTable.getColumnModel().getColumn(1).setMinWidth(150);
-            jTable.getColumnModel().getColumn(1).setMaxWidth(200);
+            jTable.getColumnModel().getColumn(0).setMinWidth(100);
+            jTable.getColumnModel().getColumn(0).setMaxWidth(100);
         }
 
         jButtonCarregar.setText("Carregar");

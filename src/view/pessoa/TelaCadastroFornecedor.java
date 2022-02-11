@@ -160,7 +160,15 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
     public void setjBtnBuscaCep(JButton jBtnBuscaCep) {
         this.jBtnBuscaCep = jBtnBuscaCep;
     }
-    
+
+    public JButton getjBtnAddContato() {
+        return jBtnAddContato;
+    }
+
+    public void setjBtnAddContato(JButton jBtnAddContato) {
+        this.jBtnAddContato = jBtnAddContato;
+    }
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -202,6 +210,7 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
         jBtnAddCep = new javax.swing.JButton();
         jLabelInfos = new javax.swing.JLabel();
         jLabelEnd = new javax.swing.JLabel();
+        jBtnAddContato = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -309,6 +318,9 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
         jLabelEnd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelEnd.setText("Endereço");
 
+        jBtnAddContato.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jBtnAddContato.setText("Adicionar Contato");
+
         javax.swing.GroupLayout jPanelContainerLayout = new javax.swing.GroupLayout(jPanelContainer);
         jPanelContainer.setLayout(jPanelContainerLayout);
         jPanelContainerLayout.setHorizontalGroup(
@@ -331,7 +343,8 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
                             .addComponent(jLabelNomeFanta)
                             .addComponent(jTFNomeFantasia)
                             .addComponent(jLabeInscEstadual)
-                            .addComponent(jFTFInscEstadual, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                            .addComponent(jFTFInscEstadual, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(jBtnAddContato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabelInfos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(40, 40, 40)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -420,8 +433,10 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabelEmail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtnAddContato))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContainerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -474,6 +489,7 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnAddCep;
+    private javax.swing.JButton jBtnAddContato;
     private javax.swing.JButton jBtnBuscaCep;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCancelar;

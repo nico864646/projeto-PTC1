@@ -1,6 +1,8 @@
 package view.pessoa;
 
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
@@ -15,22 +17,6 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
 
     public void setjButtonBuscar(JButton jButtonBuscar) {
         this.jButtonBuscar = jButtonBuscar;
-    }
-
-    public JButton getjButtonCancelar() {
-        return jButtonCancelar;
-    }
-
-    public void setjButtonCancelar(JButton jButtonCancelar) {
-        this.jButtonCancelar = jButtonCancelar;
-    }
-
-    public JButton getjButtonNovo() {
-        return jButtonNovo;
-    }
-
-    public void setjButtonNovo(JButton jButtonNovo) {
-        this.jButtonNovo = jButtonNovo;
     }
 
     public JButton getjButtonSair() {
@@ -49,23 +35,31 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
         this.jButtonSalvar = jButtonSalvar;
     }
 
-    public JTextField getjTFDescricao() {
-        return jTFDescricao;
+    public JFormattedTextField getjFTFContato() {
+        return jFTFContato;
     }
 
-    public void setjTFDescricao(JTextField jTFDescricao) {
-        this.jTFDescricao = jTFDescricao;
+    public void setjFTFContato(JFormattedTextField jFTFContato) {
+        this.jFTFContato = jFTFContato;
     }
 
-    public JTextField getjTFId() {
-        return jTFId;
+    public JPanel getjPanelContainer() {
+        return jPanelContainer;
     }
 
-    public void setjTFId(JTextField jTFId) {
-        this.jTFId = jTFId;
+    public void setjPanelContainer(JPanel jPanelContainer) {
+        this.jPanelContainer = jPanelContainer;
     }
-    
-            @SuppressWarnings("unchecked")
+
+    public JTextField getjTFFornecedorID() {
+        return jTFFornecedorID;
+    }
+
+    public void setjTFFornecedorID(JTextField jTFFornecedorID) {
+        this.jTFFornecedorID = jTFFornecedorID;
+    }
+       
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -73,16 +67,14 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
         jLabelTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanelBtnContainer = new javax.swing.JPanel();
-        jButtonNovo = new javax.swing.JButton();
-        jButtonCancelar = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
         jPanelContainer = new javax.swing.JPanel();
-        jTFDescricao = new javax.swing.JTextField();
         jLabelDescricao = new javax.swing.JLabel();
-        jLabelID = new javax.swing.JLabel();
-        jTFId = new javax.swing.JTextField();
+        jTFFornecedorID = new javax.swing.JTextField();
+        jLabelDescricao1 = new javax.swing.JLabel();
+        jFTFContato = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,12 +106,6 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
 
         jPanelBtnContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButtonNovo.setText("Novo");
-        jPanelBtnContainer.add(jButtonNovo);
-
-        jButtonCancelar.setText("Cancelar");
-        jPanelBtnContainer.add(jButtonCancelar);
-
         jButtonSalvar.setText("Salvar");
         jPanelBtnContainer.add(jButtonSalvar);
 
@@ -131,9 +117,15 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
 
         jPanelContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabelDescricao.setText("Descrição");
+        jLabelDescricao.setText("Contato");
 
-        jLabelID.setText("ID");
+        jLabelDescricao1.setText("Fornecedor");
+
+        try {
+            jFTFContato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanelContainerLayout = new javax.swing.GroupLayout(jPanelContainer);
         jPanelContainer.setLayout(jPanelContainerLayout);
@@ -141,26 +133,27 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
             jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContainerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelID)
-                    .addComponent(jTFDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTFId, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelDescricao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(89, 89, 89))
+                .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelDescricao1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTFFornecedorID)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContainerLayout.createSequentialGroup()
+                        .addComponent(jLabelDescricao)
+                        .addGap(111, 111, 111))
+                    .addComponent(jFTFContato, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(101, 101, 101))
         );
         jPanelContainerLayout.setVerticalGroup(
             jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContainerLayout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
-                .addComponent(jLabelID)
+            .addGroup(jPanelContainerLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(jLabelDescricao1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addComponent(jTFFornecedorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81))
+                .addComponent(jFTFContato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -170,7 +163,7 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelBtnContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                    .addComponent(jPanelBtnContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
                     .addComponent(jPanelContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -211,18 +204,16 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
-    private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonSalvar;
+    private javax.swing.JFormattedTextField jFTFContato;
     private javax.swing.JLabel jLabelDescricao;
-    private javax.swing.JLabel jLabelID;
+    private javax.swing.JLabel jLabelDescricao1;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPTitulo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelBtnContainer;
     private javax.swing.JPanel jPanelContainer;
-    private javax.swing.JTextField jTFDescricao;
-    private javax.swing.JTextField jTFId;
+    private javax.swing.JTextField jTFFornecedorID;
     // End of variables declaration//GEN-END:variables
 }

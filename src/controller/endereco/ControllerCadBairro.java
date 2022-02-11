@@ -3,9 +3,6 @@ package controller.endereco;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.function.Predicate;
-
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import model.bo.endereco.Bairro;

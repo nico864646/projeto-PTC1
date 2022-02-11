@@ -186,6 +186,7 @@
                                   <Component id="jTFNomeFantasia" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabeInscEstadual" min="-2" max="-2" attributes="0"/>
                                   <Component id="jFTFInscEstadual" alignment="0" pref="150" max="32767" attributes="0"/>
+                                  <Component id="jBtnAddContato" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jLabelInfos" max="32767" attributes="0"/>
@@ -297,10 +298,13 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTFEmail" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTFEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jBtnAddContato" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -449,6 +453,14 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jBtnAddContato">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Adicionar Contato"/>
               </Properties>
             </Component>
           </SubComponents>
