@@ -3,9 +3,11 @@ package view.pessoa;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
-public class TelaBuscaFoneFornecedor extends javax.swing.JFrame {
+public class TelaBuscaFoneFornecedor extends javax.swing.JDialog {
 
-    public TelaBuscaFoneFornecedor() {
+
+    public TelaBuscaFoneFornecedor(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -25,39 +27,15 @@ public class TelaBuscaFoneFornecedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPTitulo = new javax.swing.JPanel();
-        jLabelTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         jButtonCarregar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
+        jPTitulo = new javax.swing.JPanel();
+        jLabelTitulo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPTitulo.setBackground(new java.awt.Color(255, 255, 51));
-        jPTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabelTitulo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Fone de Fornecedor");
-
-        javax.swing.GroupLayout jPTituloLayout = new javax.swing.GroupLayout(jPTitulo);
-        jPTitulo.setLayout(jPTituloLayout);
-        jPTituloLayout.setHorizontalGroup(
-            jPTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPTituloLayout.setVerticalGroup(
-            jPTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -66,11 +44,11 @@ public class TelaBuscaFoneFornecedor extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Fornecedor", "Fone"
+                "ID", "Fornecedor", "Contato"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -79,8 +57,8 @@ public class TelaBuscaFoneFornecedor extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable);
         if (jTable.getColumnModel().getColumnCount() > 0) {
-            jTable.getColumnModel().getColumn(0).setMinWidth(100);
-            jTable.getColumnModel().getColumn(0).setMaxWidth(100);
+            jTable.getColumnModel().getColumn(0).setMinWidth(50);
+            jTable.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
         jButtonCarregar.setText("Carregar");
@@ -94,7 +72,7 @@ public class TelaBuscaFoneFornecedor extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonCarregar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -110,6 +88,30 @@ public class TelaBuscaFoneFornecedor extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonCarregar, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                     .addComponent(jButtonSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jPTitulo.setBackground(new java.awt.Color(255, 255, 51));
+        jPTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabelTitulo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitulo.setText("Buscar Contato de Fornecedores");
+
+        javax.swing.GroupLayout jPTituloLayout = new javax.swing.GroupLayout(jPTitulo);
+        jPTitulo.setLayout(jPTituloLayout);
+        jPTituloLayout.setHorizontalGroup(
+            jPTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPTituloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPTituloLayout.setVerticalGroup(
+            jPTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPTituloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -130,11 +132,20 @@ public class TelaBuscaFoneFornecedor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   
     public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(() -> {
-            new TelaBuscaFoneFornecedor().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                TelaBuscaFoneFornecedor dialog = new TelaBuscaFoneFornecedor(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
         });
     }
 

@@ -15,15 +15,15 @@ import service.pessoa.FornecedorService;
 public class FoneFornecedorDAO {
 
     public void create(FoneFornecedor obj) {
-        String sqlExecutar = "INSERT INTO fonefornecedor (foneFornecedor, fornecedor_idfornecedor) " +
-                             "VALUES (?, ?)";
+        String sql = "INSERT INTO fonefornecedor (foneFornecedor, fornecedor_idfornecedor) " +
+                     "VALUES (?, ?)";
         // Abre conexão
         Connection connection = ConnectionFactory.getConnection();
 
         PreparedStatement prepState = null;
 
         try {
-            prepState = connection.prepareStatement(sqlExecutar);
+            prepState = connection.prepareStatement(sql);
             prepState.setString(1, obj.getDescricao());
             prepState.setInt(2, obj.getFornecedor().getIdFornecedor());
             prepState.executeUpdate();
@@ -35,8 +35,8 @@ public class FoneFornecedorDAO {
         }
     }
 
-    public List<FoneFornecedor> read(int codigo) {
-        String sqlExecutar = "SELECT foneFornecedor, fornecedor_idfornecedor " + 
+    public List<FoneFornecedor> readBySupplierID(int codigo) {
+        String sql = "SELECT idFone, foneFornecedor, fornecedor_idfornecedor " + 
                              "FROM fonefornecedor " +
                              "WHERE fornecedor_idfornecedor = ?";
 
@@ -47,7 +47,7 @@ public class FoneFornecedorDAO {
         List<FoneFornecedor> fones = new ArrayList<>();
         
         try {
-            prepState = connection.prepareStatement(sqlExecutar);
+            prepState = connection.prepareStatement(sql);
             prepState.setInt(1, codigo);
             result = prepState.executeQuery();
 
@@ -56,6 +56,7 @@ public class FoneFornecedorDAO {
                 Fornecedor fornecedor = new Fornecedor();
                 FornecedorService fService = new FornecedorService();
 
+                foneFornecedor.setIdFone(result.getInt("idFone"));
                 foneFornecedor.setDescricao(result.getString("foneFornecedor"));
                 
                 fornecedor = fService.buscar(result.getInt("fornecedor_idfornecedor"));
@@ -73,41 +74,42 @@ public class FoneFornecedorDAO {
     }
 
 
-    // public FoneFornecedor read(String descricao) {
-    //     String sql =  "SELECT foneFornecedor, fornecedor_idfornecedor FROM fonefornecedor " +
-    //                   "WHERE fonefornecedor.foneFornecedor = ?";
+    public FoneFornecedor readByID(int codigo) {
+        String sql =  "SELECT idFone, foneFornecedor, fornecedor_idfornecedor FROM fonefornecedor " +
+                      "WHERE fonefornecedor.idFone = ?";
 
-    //     Connection connection = ConnectionFactory.getConnection();
-    //     PreparedStatement prepState = null;
-    //     ResultSet result = null;
+        Connection connection = ConnectionFactory.getConnection();
+        PreparedStatement prepState = null;
+        ResultSet result = null;
 
-    //     FoneFornecedor foneFornecedor = new FoneFornecedor();
-    //     Fornecedor fornecedor = new Fornecedor();
-    //     FornecedorService fService = new FornecedorService();
-    //     try {
-    //         prepState = connection.prepareStatement(sql);
-    //         prepState.setString(1, descricao);
-    //         result = prepState.executeQuery();
+        FoneFornecedor foneFornecedor = new FoneFornecedor();
+        Fornecedor fornecedor = new Fornecedor();
+        FornecedorService fService = new FornecedorService();
+        try {
+            prepState = connection.prepareStatement(sql);
+            prepState.setInt(1, codigo);
+            result = prepState.executeQuery();
 
-    //         while (result.next()) {
-    //             foneFornecedor.setDescricao(result.getString("foneFornecedor"));
+            while (result.next()) {
+                foneFornecedor.setIdFone(result.getInt("idFone"));
+                foneFornecedor.setDescricao(result.getString("foneFornecedor"));
                 
-    //             fornecedor = fService.buscar(result.getInt("fornecedor_idfornecedor"));
-    //             foneFornecedor.setFornecedor(fornecedor);
-    //         }
-    //         return foneFornecedor;
+                fornecedor = fService.buscar(result.getInt("fornecedor_idfornecedor"));
+                foneFornecedor.setFornecedor(fornecedor);
+            }
+            return foneFornecedor;
 
-    //     } catch (SQLException ex) {
-    //         ex.printStackTrace();
-    //         return null;
-    //     } finally {
-    //         ConnectionFactory.closeConnection(connection, prepState, result);
-    //     }
-    // }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        } finally {
+            ConnectionFactory.closeConnection(connection, prepState, result);
+        }
+    }
 
-    public void update(String oldNumber, FoneFornecedor obj) {
-        String sql = "UPDATE fonefornecedor SET foneFornecedor = ? fornecedor_idfornecedor = ?  " + 
-                     "WHERE fonefornecedor.foneFornecedor = ?";
+    public void update(FoneFornecedor obj) {
+        String sql = "UPDATE fonefornecedor SET foneFornecedor = ?, fornecedor_idfornecedor = ? " + 
+                     "WHERE fonefornecedor.idFone = ?";
 
         Connection connection = ConnectionFactory.getConnection();
         PreparedStatement prepState = null;
@@ -116,7 +118,7 @@ public class FoneFornecedorDAO {
             prepState = connection.prepareStatement(sql);
             prepState.setString(1, obj.getDescricao());
             prepState.setInt(2, obj.getFornecedor().getIdFornecedor());
-            prepState.setString(3, oldNumber);
+            prepState.setInt(3, obj.getIdFone());
             prepState.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -126,14 +128,14 @@ public class FoneFornecedorDAO {
     }
 
     public void delete(FoneFornecedor obj) {
-        String sql = "DELETE FROM fonefornecedor WHERE foneFornecedor = ?";
+        String sql = "DELETE FROM fonefornecedor WHERE idFone = ?";
 
         Connection connection = ConnectionFactory.getConnection();
         PreparedStatement prepState = null;
 
         try {
             prepState = connection.prepareStatement(sql);
-            prepState.setString(1, obj.getDescricao());
+            prepState.setInt(1, obj.getIdFone());
             prepState.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

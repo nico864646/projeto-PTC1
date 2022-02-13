@@ -11,7 +11,7 @@ public class ControllerBusFoneFornecedor implements ActionListener{
 
     TelaBuscaFoneFornecedor telaBuscaFoneFornecedor;
 
-    public ControllerBusFoneFornecedor(TelaBuscaFoneFornecedor telaBusFoneFornecedor, int codigo){
+    public ControllerBusFoneFornecedor(TelaBuscaFoneFornecedor telaBusFoneFornecedor, int cdgFornecedor){
         this.telaBuscaFoneFornecedor = telaBusFoneFornecedor;
         
         telaBusFoneFornecedor.getjButtonCarregar().addActionListener(this);
@@ -20,10 +20,12 @@ public class ControllerBusFoneFornecedor implements ActionListener{
         DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFoneFornecedor.getjTable().getModel();
 
         FoneFornecedorService foneService = new FoneFornecedorService();
-        foneService.buscar(codigo).forEach(contatoAtual -> {
+
+        foneService.buscarPorFornecedor(cdgFornecedor).forEach(contatoAtual -> {
             tabela.addRow(new Object[]{
+                contatoAtual.getIdFone(),
                 contatoAtual.getFornecedor().getIdFornecedor(),
-                contatoAtual.getDescricao(),
+                contatoAtual.getDescricao()
             });
         });
     }
@@ -31,7 +33,10 @@ public class ControllerBusFoneFornecedor implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         if(event.getSource() == this.telaBuscaFoneFornecedor.getjButtonCarregar()){
-            ControllerCadFone.searchRsltContact =  (String) this.telaBuscaFoneFornecedor.getjTable().getValueAt(this.telaBuscaFoneFornecedor.getjTable().getSelectedRow(), 1);
+            int codigoFone = (int) this.telaBuscaFoneFornecedor.getjTable().getValueAt(
+                this.telaBuscaFoneFornecedor.getjTable().getSelectedRow(), 0
+            );
+            ControllerCadFoneFornecedor.idFone = codigoFone;
             this.telaBuscaFoneFornecedor.dispose();
         } else if(event.getSource() == this.telaBuscaFoneFornecedor.getjButtonSair()){
             this.telaBuscaFoneFornecedor.dispose();

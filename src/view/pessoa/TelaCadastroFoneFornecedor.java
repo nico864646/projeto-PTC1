@@ -58,7 +58,15 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
     public void setjTFFornecedorID(JTextField jTFFornecedorID) {
         this.jTFFornecedorID = jTFFornecedorID;
     }
-       
+
+    public JTextField getjTFIdFone() {
+        return jTFIdFone;
+    }
+
+    public void setjTFIdFone(JTextField jTFIdFone) {
+        this.jTFIdFone = jTFIdFone;
+    }
+      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -71,10 +79,12 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
         jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
         jPanelContainer = new javax.swing.JPanel();
-        jLabelDescricao = new javax.swing.JLabel();
+        jLabelContato = new javax.swing.JLabel();
         jTFFornecedorID = new javax.swing.JTextField();
-        jLabelDescricao1 = new javax.swing.JLabel();
+        jLabelFornecedor = new javax.swing.JLabel();
         jFTFContato = new javax.swing.JFormattedTextField();
+        jLabelID = new javax.swing.JLabel();
+        jTFIdFone = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,9 +127,9 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
 
         jPanelContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabelDescricao.setText("Contato");
+        jLabelContato.setText("Contato");
 
-        jLabelDescricao1.setText("Fornecedor");
+        jLabelFornecedor.setText("Fornecedor");
 
         try {
             jFTFContato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
@@ -127,33 +137,43 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        jLabelID.setText("ID");
+
         javax.swing.GroupLayout jPanelContainerLayout = new javax.swing.GroupLayout(jPanelContainer);
         jPanelContainer.setLayout(jPanelContainerLayout);
         jPanelContainerLayout.setHorizontalGroup(
             jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContainerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelDescricao1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTFFornecedorID)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContainerLayout.createSequentialGroup()
-                        .addComponent(jLabelDescricao)
-                        .addGap(111, 111, 111))
-                    .addComponent(jFTFContato, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(101, 101, 101))
+                .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTFIdFone, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTFFornecedorID)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContainerLayout.createSequentialGroup()
+                            .addComponent(jLabelContato)
+                            .addGap(111, 111, 111))
+                        .addComponent(jFTFContato, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(104, 104, 104))
         );
         jPanelContainerLayout.setVerticalGroup(
             jPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContainerLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(jLabelDescricao1)
+                .addGap(53, 53, 53)
+                .addComponent(jLabelID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTFIdFone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelFornecedor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTFFornecedorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabelDescricao)
+                .addComponent(jLabelContato)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jFTFContato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -207,13 +227,15 @@ public class TelaCadastroFoneFornecedor extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JFormattedTextField jFTFContato;
-    private javax.swing.JLabel jLabelDescricao;
-    private javax.swing.JLabel jLabelDescricao1;
+    private javax.swing.JLabel jLabelContato;
+    private javax.swing.JLabel jLabelFornecedor;
+    private javax.swing.JLabel jLabelID;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPTitulo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelBtnContainer;
     private javax.swing.JPanel jPanelContainer;
     private javax.swing.JTextField jTFFornecedorID;
+    private javax.swing.JTextField jTFIdFone;
     // End of variables declaration//GEN-END:variables
 }

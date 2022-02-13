@@ -12,19 +12,19 @@ public class FoneFornecedorService{
         foneFornecedor.create(obj);
     }
 
-    public List<FoneFornecedor> buscar(int codigo) {
+    public List<FoneFornecedor> buscarPorFornecedor(int codigo) {
         FoneFornecedorDAO foneFornecedor = new FoneFornecedorDAO();
-        return foneFornecedor.read(codigo);
+        return foneFornecedor.readBySupplierID(codigo);
     }
 
-    // public FoneFornecedor buscar(String descricao) {
-    //     FoneFornecedorDAO foneFornecedor = new FoneFornecedorDAO();
-    //     return foneFornecedor.read(descricao);
-    // }
-
-    public void atualizar(String novoContato, FoneFornecedor obj) {
+    public FoneFornecedor buscarPorID(int codigo) {
         FoneFornecedorDAO foneFornecedor = new FoneFornecedorDAO();
-        foneFornecedor.update(novoContato, obj);
+        return foneFornecedor.readByID(codigo);
+    }
+
+    public void atualizar(FoneFornecedor obj) {
+        FoneFornecedorDAO foneFornecedor = new FoneFornecedorDAO();
+        foneFornecedor.update(obj);
     }
 
     public void deletar(FoneFornecedor obj) {

@@ -53,6 +53,7 @@ public class ControllerCadFornecedor implements ActionListener {
 
         buttonState(true);
         inputState(false);
+        this.telaCadFornecedor.getjBtnAddContato().setEnabled(false);
     }
 
     @Override // Quando disparar a ação aqui será executado o código do botão em questão.
@@ -60,10 +61,12 @@ public class ControllerCadFornecedor implements ActionListener {
         if (event.getSource() == telaCadFornecedor.getjButtonNovo()) {
             buttonState(false);
             inputState(true);
+
         } else if (event.getSource() == telaCadFornecedor.getjButtonCancelar()) {
             buttonState(true);
             inputState(false);
             this.telaCadFornecedor.getjBtnAddContato().setEnabled(false);
+
         } else if (event.getSource() == telaCadFornecedor.getjButtonSalvar()) {
             Fornecedor fornecedor = new Fornecedor();
             FornecedorService fService = new FornecedorService();
@@ -88,6 +91,7 @@ public class ControllerCadFornecedor implements ActionListener {
             }
             buttonState(true);
             inputState(false);
+
         } else if (event.getSource() == telaCadFornecedor.getjButtonBuscar()) {
             codigo = 0;
             TelaBuscaFornecedor telaBusFornecedor = new TelaBuscaFornecedor(null, true);
@@ -96,7 +100,6 @@ public class ControllerCadFornecedor implements ActionListener {
             if (codigo != 0) {
                 buttonState(false);
                 inputState(true);
-
                 Fornecedor fornecedor = new Fornecedor();
                 FornecedorService fService = new FornecedorService();
                 Cep cep = new Cep();
@@ -117,11 +120,12 @@ public class ControllerCadFornecedor implements ActionListener {
                 this.telaCadFornecedor.getjTFCidade().setText(cep.getCidade().getDescricao());
                 this.telaCadFornecedor.getjTFLogradouro().setText(cep.getLogradouro());
 
-                this.telaCadFornecedor.getjTFId().setEnabled(false);
                 this.telaCadFornecedor.getjBtnAddContato().setEnabled(true);
             }
+
         } else if (event.getSource() == telaCadFornecedor.getjButtonSair()) {
             this.telaCadFornecedor.dispose();
+            
         } else if (event.getSource() == telaCadFornecedor.getjBtnBuscaCep()) {
             codigo = 0;
             TelaBuscaCep telaBusCep = new TelaBuscaCep(null, true);
@@ -145,7 +149,9 @@ public class ControllerCadFornecedor implements ActionListener {
             telaCadCep.setVisible(true);
         } else if (event.getSource() == telaCadFornecedor.getjBtnAddContato()){
             TelaCadastroFoneFornecedor telaCadFone = new TelaCadastroFoneFornecedor();
-            ControllerCadFone controllerCadFone = new ControllerCadFone(telaCadFone, Integer.parseInt(this.telaCadFornecedor.getjTFId().getText()));
+            ControllerCadFoneFornecedor controllerCadFone = new ControllerCadFoneFornecedor(
+                telaCadFone, Integer.parseInt(this.telaCadFornecedor.getjTFId().getText())
+            );
             telaCadFone.setVisible(true);
         }
     }
