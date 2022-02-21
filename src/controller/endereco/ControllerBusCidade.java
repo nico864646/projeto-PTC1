@@ -33,7 +33,9 @@ public class ControllerBusCidade implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         if(event.getSource() == this.telaBuscaCidade.getjButtonCarregar()){
-            ControllerCadCidade.codigo =  (int) this.telaBuscaCidade.getjTable().getValueAt(this.telaBuscaCidade.getjTable().getSelectedRow(), 0);
+            ControllerCadCidade.codigo =  (int) this.telaBuscaCidade.getjTable().getValueAt(
+                this.telaBuscaCidade.getjTable().getSelectedRow(), 0
+            );
             this.telaBuscaCidade.dispose();
         } else if(event.getSource() == this.telaBuscaCidade.getjButtonSair()){
             this.telaBuscaCidade.dispose();

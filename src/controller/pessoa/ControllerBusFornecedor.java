@@ -35,7 +35,9 @@ public class ControllerBusFornecedor implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         if(event.getSource() == this.telaBuscaFornecedor.getjButtonCarregar()){
-            ControllerCadFornecedor.codigo =  (int) this.telaBuscaFornecedor.getjTable().getValueAt(this.telaBuscaFornecedor.getjTable().getSelectedRow(), 0);
+            ControllerCadFornecedor.codigo =  (int) this.telaBuscaFornecedor.getjTable().getValueAt(
+                this.telaBuscaFornecedor.getjTable().getSelectedRow(), 0
+            );
             this.telaBuscaFornecedor.dispose();
         } else if(event.getSource() == this.telaBuscaFornecedor.getjButtonSair()){
             this.telaBuscaFornecedor.dispose();

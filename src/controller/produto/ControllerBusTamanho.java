@@ -32,7 +32,9 @@ public class ControllerBusTamanho implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         if(event.getSource() == this.telaBuscaTamanho.getjButtonCarregar()){
-            ControllerCadTamanho.codigo =  (int) this.telaBuscaTamanho.getjTable().getValueAt(this.telaBuscaTamanho.getjTable().getSelectedRow(), 0);
+            ControllerCadTamanho.codigo =  (int) this.telaBuscaTamanho.getjTable().getValueAt(
+                this.telaBuscaTamanho.getjTable().getSelectedRow(), 0
+            );
             this.telaBuscaTamanho.dispose();
         } else if(event.getSource() == this.telaBuscaTamanho.getjButtonSair()){
             this.telaBuscaTamanho.dispose();

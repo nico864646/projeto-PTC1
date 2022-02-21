@@ -267,7 +267,7 @@ public class TelaCadastroVendedor extends javax.swing.JFrame {
         jLabelFone1.setText("Telefone");
 
         try {
-            jFTFFone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-####")));
+            jFTFFone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

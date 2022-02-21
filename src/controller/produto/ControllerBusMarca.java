@@ -32,7 +32,9 @@ public class ControllerBusMarca implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         if(event.getSource() == this.telaBuscaMarca.getjButtonCarregar()){
-            ControllerCadMarca.codigo =  (int) this.telaBuscaMarca.getjTable().getValueAt(this.telaBuscaMarca.getjTable().getSelectedRow(), 0);
+            ControllerCadMarca.codigo =  (int) this.telaBuscaMarca.getjTable().getValueAt(
+                this.telaBuscaMarca.getjTable().getSelectedRow(), 0
+            );
             this.telaBuscaMarca.dispose();
         } else if(event.getSource() == this.telaBuscaMarca.getjButtonSair()){
             this.telaBuscaMarca.dispose();

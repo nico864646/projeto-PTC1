@@ -35,7 +35,9 @@ public class ControllerBusCaractProd implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         if(event.getSource() == this.telaBuscaCaractProd.getjButtonCarregar()){
-            ControllerCadCaractProd.codigo =  (int) this.telaBuscaCaractProd.getjTable().getValueAt(this.telaBuscaCaractProd.getjTable().getSelectedRow(), 0);
+            ControllerCadCaractProd.codigo =  (int) this.telaBuscaCaractProd.getjTable().getValueAt(
+                this.telaBuscaCaractProd.getjTable().getSelectedRow(), 0
+            );
             this.telaBuscaCaractProd.dispose();
         } else if(event.getSource() == this.telaBuscaCaractProd.getjButtonSair()){
             this.telaBuscaCaractProd.dispose();

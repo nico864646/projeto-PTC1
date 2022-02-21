@@ -32,7 +32,9 @@ public class ControllerBusCor implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         if(event.getSource() == this.telaBuscaCor.getjButtonCarregar()){
-            ControllerCadCor.codigo =  (int) this.telaBuscaCor.getjTable().getValueAt(this.telaBuscaCor.getjTable().getSelectedRow(), 0);
+            ControllerCadCor.codigo =  (int) this.telaBuscaCor.getjTable().getValueAt(
+                this.telaBuscaCor.getjTable().getSelectedRow(), 0
+            );
             this.telaBuscaCor.dispose();
         } else if(event.getSource() == this.telaBuscaCor.getjButtonSair()){
             this.telaBuscaCor.dispose();

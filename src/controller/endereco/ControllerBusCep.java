@@ -38,10 +38,18 @@ public class ControllerBusCep implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         if(event.getSource() == this.telaBuscaCep.getjButtonCarregar()){
-            ControllerCadCep.codigo =  (int) this.telaBuscaCep.getjTable().getValueAt(this.telaBuscaCep.getjTable().getSelectedRow(), 0);
-            ControllerCadCliente.codigo =  (int) this.telaBuscaCep.getjTable().getValueAt(this.telaBuscaCep.getjTable().getSelectedRow(), 0);
-            ControllerCadFornecedor.codigo =  (int) this.telaBuscaCep.getjTable().getValueAt(this.telaBuscaCep.getjTable().getSelectedRow(), 0);
-            ControllerCadVendedor.codigo =  (int) this.telaBuscaCep.getjTable().getValueAt(this.telaBuscaCep.getjTable().getSelectedRow(), 0);
+            ControllerCadCep.codigo =  (int) this.telaBuscaCep.getjTable().getValueAt(
+                this.telaBuscaCep.getjTable().getSelectedRow(), 0
+            );
+            ControllerCadCliente.codigo =  (int) this.telaBuscaCep.getjTable().getValueAt(
+                this.telaBuscaCep.getjTable().getSelectedRow(), 0
+            );
+            ControllerCadFornecedor.codigo =  (int) this.telaBuscaCep.getjTable().getValueAt(
+                this.telaBuscaCep.getjTable().getSelectedRow(), 0
+            );
+            ControllerCadVendedor.codigo =  (int) this.telaBuscaCep.getjTable().getValueAt(
+                this.telaBuscaCep.getjTable().getSelectedRow(), 0
+            );
             this.telaBuscaCep.dispose();
         } else if(event.getSource() == this.telaBuscaCep.getjButtonSair()){
             this.telaBuscaCep.dispose();
